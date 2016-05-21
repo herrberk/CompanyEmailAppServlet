@@ -1,0 +1,88 @@
+@CHARSET "ISO-8859-1";
+
+
+body {
+    font: normal 12px  Arial, sans-serif;
+    background-image: url("bg.jpg");
+     width: 100%;
+    height: 100%;
+}
+
+
+.wrapper{
+	height:100%; 
+	position:relative; 
+	width: 1180px;
+	
+}
+.header{
+	position:absoulte; 
+	top:0px; 
+	width:100%;  
+	z-index:10;
+	-webkit-box-shadow: 0 7px 2px -6px black;
+	   -moz-box-shadow: 0 7px 2px -6px black;
+	        box-shadow: 0 7px 2px -6px black;
+}
+.content{
+	padding:10px;
+	min-height:350px;
+}
+.footer{
+	position:absolute; 
+	bottom:0px; 
+	left:0px; 
+	width:100%; 
+	
+}
+
+.bodyleft{
+	float:left;
+	width:760px;
+	border:1px solid #508AB0;
+	border-radius:5px;
+	background-color:#E0F1F1;
+}
+.bodyright{
+	margin-top:0px;
+	position:relative; 
+	float:right;
+	width:320px;
+	border:1px solid #508AB0;
+	border-radius:5px;
+	background-color:#E0F1F1;
+}
+.inputform{
+position: relative;
+left: 5%;
+ 
+}
+.inputform table tr td input,textarea,select{
+	width:200px;
+	}
+#gender1,#gender2{
+	width:10px;
+	}
+#submit{
+	margin-left:100px;
+	width:100px;
+	}
+#reset{
+	width:100px;
+	}
+.titles{
+	font-size:16px;
+	color:#508AB0;
+	text-align:left;
+	
+	}
+.contactadministrator{
+	font-size:13px;
+	color:black;
+	text-align:left;
+	margin-left:0px;
+}
+.menu{
+	text-align:center;
+	font-size:30px;
+}

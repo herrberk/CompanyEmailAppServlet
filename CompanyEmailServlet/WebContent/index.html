@@ -1,73 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="ISO-8859-1">
 <title>TechSoft Login</title>
-<style type="text/css">
-.inputform{float:left;
-width:400px;border:1px solid pink;border-radius:10px;padding:10px;
-}
-.inputform table tr td input,textarea,select{width:200px;}
-#gender1,#gender2{width:10px;}
-#submit{margin-left:100px;width:100px;}
-#reset{width:100px;}
-.design{background-color:red;color:white;padding-left:100px;}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
+	<div class="wrapper">
+		<div class="header">	
+			<!-- header -->
+			<a href="index.html">
+				<img src="logo.png" alt="Logo" style="width:334px;height:188px;"></img>
+			</a>
+			
+		</div>
 
-<!-- header -->
-<a href="index.html">
-	<img src="logo.png" alt="Logo" style="width:334px;height:188px;"></img>
-</a>
-<h4 style="background-color:red;color:red;">___</h4>
+
 <!-- body -->
-
-<div class="inputform">
-<h2 class="design">Registration</h2>
-<form action="RegisterServlet" method="post">
-<table>
-<tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
-<tr><td>Email:</td><td><input type="text" name="email"/>@cmailer.com</td></tr>
-<tr><td>Password:</td><td><input type="password" name="password"/></td></tr>
-<tr><td>Gender:</td><td><input id="gender1" type="radio" name="gender" value="male"/>Male 
-<input type="radio" id="gender2" name="gender" value="female"/>Female
-</td></tr>
-<tr><td>Date Of Birth:</td><td><input type="date" name="dob"/></td></tr>
-<tr><td>AddressLine:</td><td><textarea name="addressLine" rows="5" cols="15"></textarea></td></tr>
-<tr><td>City:</td><td><input type="text" name="city"/></td></tr>
-<tr><td>State:</td><td><input type="text" name="state"/></td></tr>
-<tr><td>Country:</td><td><select name="country">
-<option>Select-Country:</option>
-<option>Canada</option>
-<option>U.S.A.</option>
-<option>U.K.</option>
-<option>France</option>
-<option>Germany</option>
-<option>China</option>
-<option>India</option>
-<option>Turkey</option>
-<option>Other</option>
-</select></td></tr>
-<tr><td>Phone:</td><td><input type="text" name="contact"/></td></tr>
-<tr><td colspan="2"><input id="submit" type="submit" value="register"/>
-<input id="reset" type="reset" value="clear"/>
-</td></tr>
-</table>
-</form>
+<div class="content">
+<div class="bodyleft">
+	<div class="inputform">
+		<h3 class="titles">Registration</h3>
+		<h3>Personal Info</h3>
+		<form action="RegisterServlet" method="post">
+			<table>
+				<tr><td>Name*:</td><td><input type="text" name="name" required/></td>
+					<td>&emsp;Email*:</td><td><input type="text" name="email" required/><b><i>@cmailer.com</i></b></td>
+				</tr>
+				<tr>
+					<td>Password*:</td><td><input type="password" name="password" required/></td>
+					<td>&emsp;Gender:</td><td><input id="gender1" type="radio" name="gender" value="male"/>Male 
+						<input type="radio" id="gender2" name="gender" value="female"/>Female
+					</td>
+				</tr>
+				<tr><td>Date Of Birth*:</td><td><input type="date" name="dob" required/></td>
+					<td>&emsp;Phone:</td><td><input type="text" name="contact"/></td>
+				</tr>
+			</table>
+				<h3>Location Info</h3>
+			<table style="float: left;">	
+				<tr><td>Address:&emsp;&emsp;&emsp;</td><td><textarea style= "resize:none" name="addressLine" rows="3" cols="20" ></textarea>
+				</td></tr>
+				<tr><td align="right" colspan="2"><input id="submit" type="submit" value="Register"/>
+				</td></tr>
+			</table>
+			
+			<table style="float: left;">	
+				<tr><td>&emsp;City:</td><td><input type="text" name="city"/></td></tr>
+				<tr><td>&emsp;State*:</td><td><input type="text" name="state" required/></td></tr>
+				<tr><td>&emsp;Country:</td><td><select name="country">
+					<option>Select-Country:</option>
+					<option>Canada</option>
+					<option>U.S.A.</option>
+					<option>U.K.</option>
+					<option>France</option>
+					<option>Germany</option>
+					<option>China</option>
+					<option>India</option>
+					<option>Turkey</option>
+					<option>Other</option>
+					</select></td></tr>
+					
+				<tr><td height="27px" align="left" colspan="2"><input id="reset" type="reset" value="Clear"/></td></tr>
+			</table>
+			
+		</form>
+	</div>
 </div>
 
-<div class="inputform" style="float:right;">
-<h2 class="design">Login</h2>
-<form action="LoginServlet" method="post">
-<table>
-<tr><td>Email:</td><td><input type="email" name="email"/></td></tr>
-<tr><td>Password:</td><td><input type="password" name="password"/></td></tr>
-<tr><td colspan="2"><input id="submit" type="submit" value="login"/>
-</td></tr>
-</table>
-</form>
+<div class="bodyright">
+	<div class="inputform">
+		<h3 class="titles">Sign In</h3>
+		<form action="LoginServlet" method="post">
+			<table>
+				<tr><td>Email:</td><td><input type="email" name="email"/></td></tr>
+				<tr><td>Password:</td><td><input type="password" name="password"/></td></tr>
+				<tr><td colspan="2"><input id="submit" type="submit" value="Sign In"/>
+				</td></tr>
+			</table>
+		</form>
+	</div>
+	<div class="inputform">
+	<h2 class="titles">Forgot Password?</h2>
+	<h4 class="contactadministrator">Please Contact the Administrator <br> (+1 888-88-88)</h4>
+	</div>
+	
+</div>
 </div>
 
+<div class="footer">
+<p style="margin-bottom:10px;background-color:black;color:white;text-align:left">&copy;2016 http://soysal.tk All rights reserved!</p></div>
+</div>
 </body>
 </html>
