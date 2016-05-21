@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>TechSoft Login</title>
 <style type="text/css">
 .inputform{float:left;
 width:400px;border:1px solid pink;border-radius:10px;padding:10px;
@@ -17,12 +17,14 @@ width:400px;border:1px solid pink;border-radius:10px;padding:10px;
 <body>
 
 <!-- header -->
-<h2>Company Mailer</h2>
-<h3 style="background-color:red;color:red;">c</h3>
+<a href="index.html">
+	<img src="logo.png" alt="Logo" style="width:334px;height:188px;"></img>
+</a>
+<h4 style="background-color:red;color:red;">___</h4>
 <!-- body -->
 
 <div class="inputform">
-<h2 class="design">Registration Form</h2>
+<h2 class="design">Registration</h2>
 <form action="RegisterServlet" method="post">
 <table>
 <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
@@ -37,15 +39,17 @@ width:400px;border:1px solid pink;border-radius:10px;padding:10px;
 <tr><td>State:</td><td><input type="text" name="state"/></td></tr>
 <tr><td>Country:</td><td><select name="country">
 <option>Select-Country:</option>
-<option>India</option>
-<option>Pakistan</option>
-<option>China</option>
-<option>Bhutan</option>
-<option>USA</option>
+<option>Canada</option>
+<option>U.S.A.</option>
+<option>U.K.</option>
 <option>France</option>
+<option>Germany</option>
+<option>China</option>
+<option>India</option>
+<option>Turkey</option>
 <option>Other</option>
 </select></td></tr>
-<tr><td>Contact:</td><td><input type="text" name="contact"/></td></tr>
+<tr><td>Phone:</td><td><input type="text" name="contact"/></td></tr>
 <tr><td colspan="2"><input id="submit" type="submit" value="register"/>
 <input id="reset" type="reset" value="clear"/>
 </td></tr>
@@ -54,7 +58,7 @@ width:400px;border:1px solid pink;border-radius:10px;padding:10px;
 </div>
 
 <div class="inputform" style="float:right;">
-<h2 class="design">Login Form</h2>
+<h2 class="design">Login</h2>
 <form action="LoginServlet" method="post">
 <table>
 <tr><td>Email:</td><td><input type="email" name="email"/></td></tr>
