@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.*;
-@WebServlet("/InboxServlet")
-public class InboxServlet extends HttpServlet {
+
+@WebServlet("/ComposeServlet")
+public class ComposeServlet extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
@@ -24,36 +25,17 @@ public class InboxServlet extends HttpServlet {
 		}else{
 			String email=(String)session.getAttribute("email");
 			out.print("<span style='float:right'>Hi, "+email+"</span>");
-			out.print("<h1>Inbox</h1>");
 			
 			String msg=(String)request.getAttribute("msg");
 			if(msg!=null){
 				out.print("<p>"+msg+"</p>");
 			}
-			
-			try{
-				Connection con=ConProvider.getConnection();
-				PreparedStatement ps=con.prepareStatement("SELECT * FROM message WHERE RECEIVER=? and TRASH='no' ORDER BY ID DESC");
-				ps.setString(1,email);
-				ResultSet rs=ps.executeQuery();
-				out.print("<table border='1' style='font-size:16px; width:700px;'>");
-				out.print("<tr style='background-color:grey;color:white'><td>Sender</td><td>Subject</td><td>Date</td></tr>");
-				while(rs.next()){
-					out.print("<tr><td>"+rs.getString("sender")+"</td><td><a href='ViewMailServlet?id="+rs.getString(1)+"'>"+rs.getString("subject")+"-></a></td><td>"+rs.getString("messagedate")+"</td></tr>");
-				}
-				out.print("</table>");
-				
-				con.close();
-			}catch(Exception e){out.print(e);}
+		request.getRequestDispatcher("composeform.html").include(request, response);
 		}
-		
-		
 		
 		request.getRequestDispatcher("footer.html").include(request, response);
 		out.close();
-	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request,response);
+
 	}
 
 }

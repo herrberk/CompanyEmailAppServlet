@@ -10,25 +10,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		
 		response.setContentType("text/html");
+		
 		PrintWriter out=response.getWriter();
+		
 		request.getRequestDispatcher("header.html").include(request, response);
 		
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
+		
 		if(LoginDao.validate(email, password)){
 			//out.print("you are successfully logged in!");
 			request.getSession().setAttribute("login", "true");
 			request.getSession().setAttribute("email", email);
 			response.sendRedirect("InboxServlet");
+			request.getRequestDispatcher("footer.html").include(request, response);
 			
 		}else{
-			out.print("<p>Sorry, username or password error</p>");
-			request.getRequestDispatcher("login.html").include(request, response);
+			out.print("<script>alert(\"Sorry, username or password error!\")</script>");
+			request.getRequestDispatcher("error.html").include(request, response);
 		}
 		
-		request.getRequestDispatcher("footer.html").include(request, response);
+		
 		out.close();
 	}
 
