@@ -1,10 +1,8 @@
 package herrberk;
 
 import java.sql.Connection;
-import java.util.Date;
 import java.sql.PreparedStatement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 public class RegisterDao {
 
 	public static boolean save(String name,String email,String password,String gender,String dob,String addressLine,String city,String state,String country,String contact){

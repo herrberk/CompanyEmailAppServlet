@@ -12,6 +12,9 @@ import javax.servlet.http.HttpSession;
 import java.sql.*;
 @WebServlet("/InboxServlet")
 public class InboxServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
