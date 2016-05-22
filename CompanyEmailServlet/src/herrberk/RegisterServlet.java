@@ -26,9 +26,10 @@ public class RegisterServlet extends HttpServlet {
 		String country=request.getParameter("country");
 		String contact=request.getParameter("contact");
 		
-		boolean status= RegisterDao.save(name, email+"@cmailer.com", password, gender, dob, addressLine, city, state, country, contact);
+		boolean status= RegisterDao.save(name, email, password, gender, dob, addressLine, city, state, country, contact);
 		if(status){
-			out.print("<p>You are successfully registered!</p>");
+			out.print("<p>You are successfully registered!</p>"+
+		"<img src=\"./images/registered.png\"/>");
 			request.getRequestDispatcher("login.html").include(request, response);
 			
 		}

@@ -12,8 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-@WebServlet("/ViewMailServlet")
-public class ViewMailServlet extends HttpServlet {
+@WebServlet("/TrashServlet")
+public class TrashServlet extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
@@ -27,40 +28,46 @@ public class ViewMailServlet extends HttpServlet {
 			String email=(String)session.getAttribute("email");
 			out.print("<div class=\"username\">Welcome, "+email+
 					"<img src=\"./images/welcome.png\"/>"+"</div>");
-			int id=Integer.parseInt(request.getParameter("id"));
+			out.print("<h1>Trash</h1>");
+			
+			String msg=(String)request.getAttribute("msg");
+			if(msg!=null){
+				out.print("<p>"+msg+"</p>");
+			}
 			
 			try{
 				Connection con=ConProvider.getConnection();
-				PreparedStatement ps=con.prepareStatement("SELECT * FROM message WHERE ID=?");
-				ps.setInt(1,id);
-				ResultSet rs=ps.executeQuery();
+				PreparedStatement ps=con.prepareStatement("SELECT * FROM message WHERE RECEIVER=? or SENDER=? and TRASH=? ORDER BY ID DESC");
+				ps.setString(1,email);
+				ps.setString(2,email);
+				ps.setString(3,"yes");
 				
-				if(rs.next()){
-					out.print("<img src=\"./images/open.png\" width=\"50\" height=\"50\"/><h1>"+rs.getString("subject")+"</h1><hr/>");
-					out.print("<h2><b>Message:</b><br/> "+rs.getString("message")+" <br/> <br/><br/><b>By: "+rs.getString("sender")+"</b></h2>"+
-					"<a href='ComposeServlet?receiver="+rs.getString("SENDER")+"'><img src=\"./images/reply.png\" width=\"50\" height=\"50\"/></a>");
+				ResultSet rs=ps.executeQuery();
+				out.print("<table border='1' style='font-size:16px; width:700px;'>");
+				out.print("<tr style='background-color:grey;color:white'><td>Sender</td><td>Subject</td><td>Date</td></tr>");
+				String received;
+				
+				while(rs.next()){
+					if(rs.getString("sender").equals(email))
+						received = "Sent: ";
+					else received = "Received: ";
 					
-					
-					
-					if(rs.getString("TRASH").equals("no") && rs.getString("RECEIVER").equals(email))
-						out.print("<h4><a href='DeleteMailServlet?id="+rs.getString(1)+"'>Delete Mail</a></h4>");		
-					if(rs.getString("TRASH").equals("yes") && rs.getString("RECEIVER").equals(email))
-						out.print("<h4><a href='PermanentDeleteMailServlet?id="+rs.getString(1)+"'>Delete Permanently</a></h4>");
-					if(rs.getString("TRASH").equals("yes"))
-						out.print("<h4><a href='RecoverMailServlet?id="+rs.getString(1)+"'>Recover Mail</a></h4>");	
-					
+					if(rs.getString("TRASH").equals("yes")){
+					out.print("<tr><td>"+rs.getString("sender")+
+							"</td><td><a href='ViewMailServlet?id="+rs.getString(1)+"'>"+
+							"<b>"+received+"</b>"+rs.getString("subject")+"</td><td>"+
+							rs.getString("messagedate")+"</td></tr>");
+					}
 				}
+				out.print("</table>");
+				
 				con.close();
-			}catch(Exception e){
-				out.print(e);
-				}
+			}catch(Exception e){out.print(e);}
 		}
-		
-		
 		
 		request.getRequestDispatcher("footer.html").include(request, response);
 		out.close();
-	}
 
 	}
 
+}

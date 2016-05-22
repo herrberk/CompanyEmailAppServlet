@@ -31,7 +31,7 @@
 		<form action="RegisterServlet" method="post">
 			<table>
 				<tr><td>Name*:</td><td><input type="text" name="name" required/></td>
-					<td>&emsp;Email*:</td><td><input type="text" name="email" required/><b><i>@cmailer.com</i></b></td>
+					<td>&emsp;Email*:</td><td><input type="text" name="email" required/><b><i>@tsmail.com</i></b></td>
 				</tr>
 				<tr>
 					<td>Password*:</td><td><input type="password" name="password" required/></td>
@@ -40,7 +40,7 @@
 					</td>
 				</tr>
 				<tr><td>Date Of Birth*:</td><td><input type="date" name="dob" required/></td>
-					<td>&emsp;Phone:</td><td><input type="text" name="contact"/></td>
+					<td>&emsp;Phone*:</td><td><input type="text" name="contact" required/></td>
 				</tr>
 			</table>
 				<h3>Location Info</h3>
@@ -79,7 +79,7 @@
 		<h3 class="titles">Sign In</h3>
 		<form action="LoginServlet" method="post">
 			<table>
-				<tr><td>Email:</td><td><input type="email" name="email"/></td></tr>
+				<tr><td>Email:</td><td><input type="text" style="width: 130px;" name="email"/><b><i>@tsmail.com</i></b></td></tr>
 				<tr><td>Password:</td><td><input type="password" name="password"/></td></tr>
 				<tr><td colspan="2"><input id="submit" type="submit" value="Sign In"/>
 				</td></tr>

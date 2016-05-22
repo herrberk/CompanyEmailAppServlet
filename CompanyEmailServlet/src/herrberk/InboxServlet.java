@@ -23,7 +23,8 @@ public class InboxServlet extends HttpServlet {
 			response.sendRedirect("index.html");
 		}else{
 			String email=(String)session.getAttribute("email");
-			out.print("<span style='float:right'>Hi, "+email+"</span>");
+			out.print("<div class=\"username\">Welcome, "+email+
+					"<img src=\"./images/welcome.png\"/>"+"</div>");
 			out.print("<h1>Inbox</h1>");
 			
 			String msg=(String)request.getAttribute("msg");
