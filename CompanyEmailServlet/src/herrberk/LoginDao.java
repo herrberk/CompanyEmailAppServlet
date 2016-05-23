@@ -1,8 +1,14 @@
 package herrberk;
 import java.sql.*;
+
+/**
+ * Checks the validity of entered username and password.
+ * @author Berk
+ */
 public class LoginDao {
 
-	public static boolean validate(String email,String password){
+	
+	public static synchronized boolean validate(String email,String password){
 		boolean status=false;
 		try{
 			Connection con=ConProvider.getConnection();

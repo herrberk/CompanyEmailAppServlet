@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Main duty is to create a new mail, check user validity and to send
+ * if it is valid.
+ * @author Berk
+ *
+ */
 @WebServlet("/ComposeServletProcess")
 public class ComposeServletProcess extends HttpServlet {
 

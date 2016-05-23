@@ -3,6 +3,11 @@ package herrberk;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ * Establishes connection to the database.
+ * @author Berk
+ *
+ */
 public class ConProvider {
 
 	private static Connection con=null;

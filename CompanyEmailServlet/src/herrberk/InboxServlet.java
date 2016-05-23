@@ -2,7 +2,6 @@ package herrberk;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.*;
+
+/**
+ * Displays the inbox of the user.
+ * @author Berk
+ */
+
 @WebServlet("/InboxServlet")
 public class InboxServlet extends HttpServlet {
 	
@@ -50,8 +55,6 @@ public class InboxServlet extends HttpServlet {
 				con.close();
 			}catch(Exception e){out.print(e);}
 		}
-		
-		
 		
 		request.getRequestDispatcher("footer.html").include(request, response);
 		out.close();

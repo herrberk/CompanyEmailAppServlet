@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @WebServlet("/RegisterServlet")
+
+/**
+ * Gets the registration information from the html and passes into
+ * registerdao to save to the database
+ * @author Berk
+ */
 public class RegisterServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

@@ -1,8 +1,12 @@
 package herrberk;
 
 import java.sql.Connection;
-import java.sql.Statement;
 
+import java.sql.Statement;
+/**
+ * Writes the given information into the message table of the database.
+ * @author Berk
+ */
 public class ComposeDao {
 
 	public static synchronized boolean save(String sender,String receiver,String subject,String message){

@@ -2,10 +2,13 @@ package herrberk;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
+/**
+ * Registration is performed with this Class
+ * @author Berk
+ */
 public class RegisterDao {
 
-	public static boolean save(String name,String email,String password,String gender,String dob,String addressLine,String city,String state,String country,String contact){
+	public static synchronized boolean save(String name,String email,String password,String gender,String dob,String addressLine,String city,String state,String country,String contact){
 		boolean status=false;
 		
 		try{

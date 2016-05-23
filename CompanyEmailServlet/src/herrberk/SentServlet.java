@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet("/SentServlet")
+/**
+ * Displays the sent messages
+ * @author Berk
+ */
 public class SentServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

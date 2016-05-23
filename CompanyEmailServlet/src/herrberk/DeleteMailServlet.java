@@ -1,5 +1,9 @@
 package herrberk;
 
+
+/**
+ * Marks a mail as deleted and sends it to the trash ( Not permanently )
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;

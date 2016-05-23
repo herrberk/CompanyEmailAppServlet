@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+/**
+ * Displays the trash mail
+ * @author Berk
+ */
+
 @WebServlet("/TrashServlet")
 public class TrashServlet extends HttpServlet {
 

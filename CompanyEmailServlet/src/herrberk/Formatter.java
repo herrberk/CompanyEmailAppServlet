@@ -4,6 +4,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Returns the current date in the "yyyy/MM/dd HH:mm:ss" form.
+ * @author Berk
+ */
 public class Formatter {
 
 	public static String getcurrentDate(){

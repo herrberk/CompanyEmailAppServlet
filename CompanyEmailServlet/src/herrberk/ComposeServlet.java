@@ -10,6 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Responsible of getting the request and forwarding it to 
+ * the composeform.html
+ * @author Berk
+ *
+ */
+
 @WebServlet("/ComposeServlet")
 public class ComposeServlet extends HttpServlet {
 
